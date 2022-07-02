@@ -6,6 +6,7 @@
     "deque": "cpp",
     "string": "cpp",
     "bitset": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "initializer_list": "cpp"
   }
 }

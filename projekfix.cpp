@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
+
+
 #define firstD 5
 #define secondD 10
 #define space 20-menuMakan[i][j].size() 
@@ -25,6 +27,13 @@ using namespace std;
         dotted::imbue(ss);
         ss << *x;
         cout << ss.str() << endl;
+    }
+
+    void spacing(string x){
+        for (int i = 0; i < 20-x.size(); i++)
+        {
+            cout << " ";
+        }
     }
 
     string menuMakan[firstD][secondD]={{"Ayam Goreng Tepung", "Ayam Bakar", "Ayam Lada Hitam", "Ayam Penyet", "Ayam Koloke", "em", "em", "em", "em", "em"},

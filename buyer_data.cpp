@@ -1,7 +1,6 @@
 #include <iostream>
-#include <vector>
-#include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 #include "projekfix.cpp"
 
 using namespace std;
@@ -14,26 +13,17 @@ int tail = 0;
 
 struct DATA
 {
-  int queNumber;
-  int orderAmount;
-  vector<vector<int> > order;  
+  vector<vector<int> > order; 
+  DATA()
+  {
+    for (size_t i = 0; i < MAX; i++)
+    {
+      order.resize(0, vector<int>(2, 0));
+    }
+  } 
 } buyer[MAX];
 
-void setVector(DATA*x, int size)
-{
-  for (size_t i = 0; i < size; i++)
-  {
-    buyer[i].order.resize(0, vector<int>(2, 0));
-  }
-}
 
-void setQueNumber(DATA* x, int size)
-{
-  for (size_t i = 0; i < size; i++)
-  {
-    x[i].queNumber = i+1;
-  } 
-};  
 
 bool isEmpty(){return (tail == 0) ? true : false;};
 
@@ -43,14 +33,16 @@ void displayData(DATA* x)
 {
   if (!isEmpty())
   {
-    for (size_t i = head; i < tail-1; i++)
+    for (size_t i = head; i < tail; i++)
     {
-      cout << "Urutan ke-" << x[i].queNumber << "\n";
-
+      cout << "Antrian ke-" << i+1 << "\n\n";
       for (size_t j = 0; j < x[i].order.size(); j++)
       {
-        cout << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]] << "\n";
+        cout << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
+        spacing(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
+        cout << "  ||  Rp. " << hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]] << "\n";
       } 
+      cout << "\n";
     }
   } else
   {
@@ -60,26 +52,54 @@ void displayData(DATA* x)
 
 void enQueue(DATA* x, size_t index)
 {
-  bool ordering = true;
+  bool ordering, valid = true;
+  int orderAmount = 0;
+  int ID1, ID2;
+  char pass;
 
   if (!isFull())
   {
     do
     {
-      cout << "Masukkan pilihan menu Anda: ";
-      
-      x[index].order.push_back(vector<int>());
-      x[index].order[0].push_back(1);
-      x[index].order.push_back(vector<int>());
-      x[index].order[0].push_back(2); 
+      cout << "ANTRIAN KE-" << tail+1 << "\n\n";
 
-    } while (ordering);
+      do
+      {
+        cout << "Masukkan ID1: ";
+        cin >> ID1;
+        cout << "Masukkan ID2: ";
+        cin >> ID2;
+        if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
+        {
+          valid = true;
+          x[index].order.push_back(vector<int>());
+          x[index].order[orderAmount].push_back(ID1);
+          x[index].order[orderAmount].push_back(ID2); 
+          orderAmount++;
+        } else
+        {
+          system("CLS");
+          cout << "Pilihan tidak valid!\n";
+          valid = false;
+        }
+      } while (!valid);
     
-      
- 
 
-    tail++;
+      cout << "Mau menambah?(y/n) ";
+      cin >> pass;
+      tolower(pass);
+      system("CLS");
+
+      if (pass=='y')
+      {
+        ordering = true;
+      } else
+      {
+        ordering = false;
+      }
+    }while (ordering);
   }
+  tail++;
 };
 
 void deQueue(DATA* x)
@@ -91,31 +111,17 @@ void deQueue(DATA* x)
   {
     cout << "Data penuh!";
   }
-  
+  tail--;
 }
 
 int main(int argc, char const *argv[])
 {
-  setQueNumber(buyer, MAX);
-  setVector(buyer, MAX);
-  enQueue(buyer, 0);
+  enQueue(buyer, tail);
+  enQueue(buyer, tail);
+  displayData(buyer);
+  deQueue(buyer);
   displayData(buyer);
 
-
-  
-
-  for (size_t i = 0; i < 10; i++)
-  {
-    for (size_t j = 0; j < buyer[i].order.size(); j++)
-    {
-      for (size_t k = 0; k < buyer[i].order[j].size(); k++)
-      {
-        cout << "[" << j << "][" << k << "] = ";
-        cout << buyer[i].order[j][k] << endl;
-      }
-    }
-  }
-  
     
   
   return 0;

@@ -1,2 +1,1 @@
-  cout << "[" << j << "][" << k << "] = ";
-        cout << buyer[i].order[j][k] << endl;
+  buyer[1].order.push_back(vector<int>());
