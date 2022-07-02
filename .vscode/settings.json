@@ -1,5 +1,11 @@
 {
   "files.associations": {
-    "vector": "cpp"
+    "vector": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "bitset": "cpp",
+    "algorithm": "cpp"
   }
 }

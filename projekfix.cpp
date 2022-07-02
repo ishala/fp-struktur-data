@@ -3,7 +3,7 @@
 #include <sstream>
 #define firstD 5
 #define secondD 10
-#define space 20-menuMakan[i][j].size()
+#define space 20-menuMakan[i][j].size() 
 using namespace std;
 
     struct dotted:numpunct<char> {
