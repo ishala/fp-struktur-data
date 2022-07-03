@@ -1,18 +1,30 @@
 #include <iostream>
 #include <stdlib.h>
-#include "projekfix.cpp"
+#include "buyer_data.cpp"
+
 using namespace std;
-    struct pilih
-    {
-        int choose1;
-        int choose2;
-    }go;
-    
-    void mainMenu(){
-        system("CLS");
+
+    void headerResto(){
         cout << "\t\t=====================================" << endl;
         cout << "\t\t||       RESTORAN PUNYA RASA       ||" << endl;
         cout << "\t\t=====================================" << endl;
+    }
+
+    void mainMenu(){
+        cout << "\t\t||=================================||" << endl;
+        cout << "\t\t||   1. Tampil Menu                ||" << endl;
+        cout << "\t\t||   2. Pesan Makanan              ||" << endl;
+        cout << "\t\t||   3. Tampil Data                ||" << endl;
+        cout << "\t\t||   4. Hapus Data                 ||" << endl;
+        cout << "\t\t||   5. Menu                       ||" << endl;
+        cout << "\t\t||   6. Exit                       ||" << endl;
+        cout << "\t\t=====================================" << endl;
+        cout << "\t\t     pilih : "; cin >> go.subMenu;
+    }
+
+
+    void category(){
+        system("CLS");
         cout << "\t\t=====================================" << endl;
         cout << "\t\t||      MENU RESTO PUNYA RASA      ||" << endl;
         cout << "\t\t||       PILIH KATEGORI MENU       ||" << endl;
@@ -21,7 +33,7 @@ using namespace std;
         cout << "\t\t||   2. Minuman                    ||" << endl;
         cout << "\t\t||   3. Exit                       ||" << endl;
         cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.choose1;
+        cout << "\t\t     pilih : "; cin >> go.chsCat;
         
     }
 
@@ -48,13 +60,18 @@ using namespace std;
         cout << "\t\t||   4. Sapi                           ||" << endl;
         cout << "\t\t||   5. Exit                           ||" << endl;
         cout << "\t\t=========================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.choose2;
+        cout << "\t\t     pilih : "; cin >> go.chsFood;
     }
-
+    void add(){
+        cout << "Mau menambah?(y/n) ";
+        cin >> p.pass;
+        system("CLS");
+        pilih();
+    }
     void detailFood(){
         system("CLS");
         headerFood(); // LAYOUT HEADER 
-        switch (go.choose2)  
+        switch (go.chsFood)  
         {
         case 1: // MEMILIH OPSI 1 DARI MENU MAKANAN
             for (int i = 0; i < 1; i++)
@@ -64,18 +81,17 @@ using namespace std;
                     if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
                     {   
                         cout << " ";
-                    } else{ // JIKA ARRAY TIDAK KOSONG
+                    } else
+                    { // JIKA ARRAY TIDAK KOSONG
                         cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
                         for (int k = 0; k < space; k++)
                         {
                             cout << " ";
                         }
-                        cout << "  ||  Rp. "; cek(&hargaMakan[i][j]);
-                        }
-                
+                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
+                    }
+                }
             }
-            
-        }
             break;
 
         case 2: // MEMILIH OPSI 2 DARI MENU MAKANAN
@@ -92,12 +108,10 @@ using namespace std;
                         {
                             cout << " ";
                         }
-                        cout << "  ||  Rp. "; cek(&hargaMakan[i][j]);
+                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
                         }
-                
+                }
             }
-            
-        }
             break;
 
         case 3: // MEMILIH OPSI 3 DARI MENU MAKANAN
@@ -114,12 +128,10 @@ using namespace std;
                         {
                             cout << " ";
                         }
-                        cout << "  ||  Rp. "; cek(&hargaMakan[i][j]);
+                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
                         }
-                
+                }
             }
-            
-        }
             break;
         
         case 4: // MEMILIH OPSI 2 DARI MENU MAKANAN
@@ -138,7 +150,7 @@ using namespace std;
                         {
                             cout << " ";
                         }
-                        cout << "  ||  Rp. "; cek(&hargaMakan[i][j]);
+                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
                     }
                 }
             }
@@ -170,28 +182,41 @@ using namespace std;
                     {
                         cout << " ";
                     }
-                    cout << "  ||  Rp. "; cek(&hargaMakan[i][j]);
+                    cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
                 }
             }
         }
+    
     }
 
 
 
-
-
     int main(){
-        mainMenu(); //  LAYOUT MENU UTAMA
-        if (go.choose1 == 1) // MEMILIH OPSI 1 DARI MENU UTAMA
+        do
         {
-            foodMenu(); // LAYOUT MENU MAKANAN
-            detailFood(); // LAYOUT DETAIL MAKANAN
+            headerResto();
+            mainMenu();
+            if (go.subMenu == 1)
+            {
+                category();
+                if (go.chsCat == 1)
+                {
+                    headerFood();
+                    foodMenu();
+                    detailFood();
+                } else if (go.chsCat == 2)
+                {
+                    headerDrink();
+                    detailDrink();
+                } else if (go.chsCat == 3)
+                {
+                    !pilih();
+                }
+                
+            } else if (go.subMenu == 2)
+            {
+                
+            }
             
-            
-        } 
-        else if(go.choose1 == 2)
-        {
-            detailDrink();
-        }
-        
+        } while (pilih());
     }

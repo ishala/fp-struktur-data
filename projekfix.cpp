@@ -22,7 +22,7 @@ using namespace std;
         }
     };
 
-    void cek(int* x){
+    void dot(int* x){
         stringstream ss;
         dotted::imbue(ss);
         ss << *x;
@@ -46,6 +46,6 @@ using namespace std;
                                         {15000,15000,20000,20000,22000}, {25000,23000,30000},
                                         {3000,3000,6000,5000,10000,4000,5000,7000,4000,0}, 
                                         };
+    
 
-
-
+    
