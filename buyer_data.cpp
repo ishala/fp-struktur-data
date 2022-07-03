@@ -58,7 +58,6 @@ void enQueue(DATA* x, size_t index)
     do
     {
       cout << "ANTRIAN KE-" << tail+1 << "\n\n";
-
       do
       {
         cout << "Masukkan ID1: ";
@@ -79,7 +78,6 @@ void enQueue(DATA* x, size_t index)
         }
       } while (!valid);
     
-
       cout << "Mau menambah?(y/n) ";
       cin >> pass;
       tolower(pass);
