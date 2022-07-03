@@ -7,7 +7,6 @@ using namespace std;
 
 #define MAX 10
 
-
 int head = 0;
 int tail = 0;
 
@@ -53,7 +52,6 @@ void displayData(DATA* x)
 void enQueue(DATA* x, size_t index)
 {
   bool ordering, valid = true;
-  int orderAmount = 0;
   int ID1, ID2;
   char pass;
 
@@ -73,9 +71,8 @@ void enQueue(DATA* x, size_t index)
         {
           valid = true;
           x[index].order.push_back(vector<int>());
-          x[index].order[orderAmount].push_back(ID1);
-          x[index].order[orderAmount].push_back(ID2); 
-          orderAmount++;
+          x[index].order[x[index].order.size()-1].push_back(ID1);
+          x[index].order[x[index].order.size()-1].push_back(ID2); 
         } else
         {
           system("CLS");
@@ -114,15 +111,3 @@ void deQueue(DATA* x)
   tail--;
 }
 
-int main(int argc, char const *argv[])
-{
-  enQueue(buyer, tail);
-  enQueue(buyer, tail);
-  displayData(buyer);
-  deQueue(buyer);
-  displayData(buyer);
-
-    
-  
-  return 0;
-}
