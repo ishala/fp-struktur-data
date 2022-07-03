@@ -22,8 +22,6 @@ struct DATA
   } 
 } buyer[MAX];
 
-
-
 bool isEmpty(){return (tail == 0) ? true : false;};
 
 bool isFull(){return (tail == MAX) ? true : false;};
