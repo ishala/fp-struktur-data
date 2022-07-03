@@ -93,7 +93,7 @@ using namespace std;
                 }
             }
             break;
-
+//i
         case 2: // MEMILIH OPSI 2 DARI MENU MAKANAN
             for (int i = 1; i < 2; i++)
             {
