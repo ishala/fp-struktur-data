@@ -57,6 +57,7 @@ void enQueue(DATA* x)
 
 void displayData(DATA* x)
 {
+  int total = 0;
   if (!isEmpty())
   {
     for (size_t i = head; i < tail; i++)
@@ -64,11 +65,13 @@ void displayData(DATA* x)
       cout << "Antrian ke-" << i+1 << "\n\n";
       for (size_t j = 0; j < x[i].order.size(); j++)
       {
+        total += hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
         cout << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
         spacing(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
-        cout << "  ||  Rp. " << hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]] << "\n";
+        cout << "  ||  Rp. "; dot(&hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); cout << "\n";
       } 
       cout << "\n";
+      cout << "TOTAL: "; dot(&total);
     }
   } else
   {
