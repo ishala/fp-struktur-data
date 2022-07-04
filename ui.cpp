@@ -10,6 +10,7 @@ int subMenu, chsCat;
 bool menuCon; 
 bool pilihMenu = true;
 
+
     void pilihItem(){
             int i = ID1;
 
@@ -24,7 +25,7 @@ bool pilihMenu = true;
                     {
                         cout << " ";
                     }
-                    cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
+                    cout << "  ||  Rp. "; dot(&hargaMakan[i][j]); cout << endl;
                     }
             }
 
@@ -37,6 +38,7 @@ bool pilihMenu = true;
                 ordering = true;
             } else {
                 ordering = false;
+                antrian++;
             }
     }
     
@@ -61,14 +63,19 @@ bool pilihMenu = true;
         cout << "\t\t=========================================" << endl;
     }
     void mainMenu(){
+        if (antrian == -1)
+        {
+            antrian = 0;
+        }
+        
         cout << "\t\t||=================================||" << endl;
-        cout << "\t\t||   1. Tampil Menu                ||" << endl;
-        cout << "\t\t||   2. Pesan Makanan              ||" << endl;
-        cout << "\t\t||   3. Tampil Data                ||" << endl;
-        cout << "\t\t||   4. Dequeue                    ||" << endl;
-        cout << "\t\t||   5. Exit                       ||" << endl;
+        cout << "\t\t||   1. Pesan Makanan              ||" << endl;
+        cout << "\t\t||   2. Tampil Data  (" << antrian << ")           ||" << endl;
+        cout << "\t\t||   3. Dequeue                    ||" << endl;
+        cout << "\t\t||   4. Exit                       ||" << endl;
         cout << "\t\t=====================================" << endl;
         cout << "\t\t     pilih : "; cin >> subMenu;
+        
     }
 
 
@@ -81,7 +88,7 @@ bool pilihMenu = true;
         cout << "\t\t||   1. Makanan                    ||" << endl;
         cout << "\t\t||   2. Minuman                    ||" << endl;
         cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> chsCat;
+        cout << "\t\t||    pilih : "; cin >> chsCat;
 
         if (chsCat == 2)
         {
@@ -97,7 +104,7 @@ bool pilihMenu = true;
         cout << "\t\t||   3. Udang                          ||" << endl;
         cout << "\t\t||   4. Sapi                           ||" << endl;
         cout << "\t\t=========================================" << endl;
-        cout << "\t\t     pilih : "; cin >> ID1; ID1 -= 1;
+        cout << "\t\t||   pilih : "; cin >> ID1; ID1 -= 1;
     }
     
     void detailFood(){
@@ -121,28 +128,11 @@ bool pilihMenu = true;
     }
 
     int main(){
-        cout <<"\n\t\t            |||||||||||| ";
-        cout <<"\n\t\t          |||||||||||||||||| ";
-        cout <<"\n\t\t         |||||||||||||||||||||";
-        cout <<"\n\t\t    |||| ||||||||||      ==== ||";
-        cout <<"\n\t\t  |||||| ||||||||         ===  |";
-        cout <<"\n\t\t  |||||| ||||||||||           ||";
-        cout <<"\n\t\t  |||||| |||||||||||||||||||||||";
-        cout <<"\n\t\t  |||||| |||||||| RESTORAN |||||";
-        cout <<"\n\t\t  |||||| ||||||||| PUNYA |||||||";
-        cout <<"\n\t\t   ||||| |||||||||| RASA |||||||";
-        cout <<"\n\t\t     ||| |||||||||||||||||||||||";
-        cout <<"\n\t\t       | |||||||||||||||||||||||";
-        cout <<"\n\t\t         |||||||||||| ||||||||||";
-        cout <<"\n\t\t         |||||||||||| ||||||||||";
-        cout <<"\n\t\t         ||||||||||    |||||||||";
-        cout <<"\n\t\t         ||||||||||    |||||||||";
-
-
-        
-        cout << "\n";
+        system("cls");
         do
         {   
+            amogus();
+            cout << "\n";
             headerResto();
             mainMenu();
             switch (subMenu)
@@ -166,24 +156,22 @@ bool pilihMenu = true;
                 tail++;
                 break;
             case 2:
-                cout << "Kosong!";
                 system("cls");
-                break;
-            case 3:
                 displayData(buyer);
                 getch();
                 system("cls");
                 break;
-            case 4:
+            case 3:
                 cout << "\t\t\n\nData sudah dihapus";
                 deQueue(buyer);
                 getch();
                 system("cls");
                 break;
-            case 5:
+            case 4:
                 system("CLS");
-
-                
+                amogusExit();
+                getch();
+                system("CLS");
                 pilihMenu = false;
                 break;
             default:

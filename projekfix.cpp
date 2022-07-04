@@ -21,28 +21,37 @@ using namespace std;
             os.imbue(locale(os.getloc(), new dotted));
         }
     };
-    
-    // struct pilihMenu{
-
-    // }go;
 
     void dot(int* x){
         stringstream ss;
         dotted::imbue(ss);
         ss << *x;
-        cout << ss.str() << endl;
+        cout << ss.str();
     }
 
-    void spacing(string x){
-        for (int i = 0; i < 20-x.size(); i++)
+    void spacingMakanan(string x){
+        for (int i = 0; i < 25-x.size(); i++)
+        {
+            cout << " ";
+        }
+    }
+    
+    void spacingHarga(){
+        for (int i = 0; i < 3; i++)
         {
             cout << " ";
         }
     }
 
+    void spacingTotal(){
+        for (int i = 0; i < 27; i++)
+        {
+            cout << " ";
+        }
+    }
 
-    string menuMakan[firstD][secondD]={{"Ayam Goreng Tepung", "Ayam Bakar", "Ayam Lada Hitam", "Ayam Penyet", "Ayam Koloke", "em", "em", "em", "em", "em"},
-                            {"Cumi Tepung", "Cumi Goreng Mentega", "Cumi Asam Manis", "Cumi Saus Padang", "em", "em", "em", "em", "em", "em"},
+    string menuMakan[firstD][secondD]={{"Ayam Goreng", "Ayam Bakar", "Ayam Lada Hitam", "Ayam Penyet", "Ayam Koloke", "em", "em", "em", "em", "em"},
+                            {"Cumi Tepung", "Cumi Goreng", "Cumi Asam Manis", "Cumi Saus Padang", "em", "em", "em", "em", "em", "em"},
                             {"Udang Goreng Tepung", "Udang Goreng Mentega", "Udang Asam Manis", "Udang Lada Hitam", "Udang Saus Padang", "em", "em", "em", "em", "em"}, 
                             {"Sapi Lada Hitam", "Sapi Mentega", "Sapi Ala Canton", "em", "em", "em", "em", "em", "em", "em"},
                             {"Es Teh", "Es Jeruk", "Es Kelapa muda", "Es Cincau", "Es campur", "Wedang Ronde", "Es Susu", "Es Teler", "Air Mineral", "em"}};
@@ -53,3 +62,66 @@ using namespace std;
                                         };
     
 
+void amogus(){
+        cout <<"\n\t\t            |||||||||||| ";
+        cout <<"\n\t\t          |||||||||||||||||| ";
+        cout <<"\n\t\t         |||||||||||||||||||||";
+        cout <<"\n\t\t    |||| ||||||||||      ==== ||";
+        cout <<"\n\t\t  |||||| ||||||||         ===  |";
+        cout <<"\n\t\t  |||||| ||||||||||           ||";
+        cout <<"\n\t\t  |||||| |||||||||||||||||||||||";
+        cout <<"\n\t\t  |||||| |||||||| RESTORAN |||||";
+        cout <<"\n\t\t  |||||| ||||||||| PUNYA |||||||";
+        cout <<"\n\t\t   ||||| |||||||||| RASA |||||||";
+        cout <<"\n\t\t     ||| |||||||||||||||||||||||";
+        cout <<"\n\t\t       | |||||||||||||||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+    }
+
+void amogusEmpty(){                              
+        cout <<"\n\t                                    ____";                  
+        cout <<"\n\t                                   ((   ))";
+        cout <<"\n\t                                       ))";  
+        cout <<"\n\t                                     ||";   
+        cout <<"\n\t\t            ||||||||||||     00";
+        cout <<"\n\t\t          |||||||||||||||||| ";
+        cout <<"\n\t\t         |||||||||||||||||||||";
+        cout <<"\n\t\t    |||| ||||||||||      ==== ||";
+        cout <<"\n\t\t  |||||| ||||||||         ===  |";
+        cout <<"\n\t\t  |||||| ||||||||||           ||";
+        cout <<"\n\t\t  |||||| |||||||||||||||||||||||";
+        cout <<"\n\t\t  |||||| |||||||| RESTORAN |||||";
+        cout <<"\n\t\t  |||||| ||||||||| PUNYA |||||||";
+        cout <<"\n\t\t   ||||| |||||||||| RASA |||||||";
+        cout <<"\n\t\t     ||| |||||||||||||||||||||||";
+        cout <<"\n\t\t       | |||||||||||||||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+        cout <<"\n\t\t        ========================"; 
+        cout <<"\n\t\t       /                        \\"; 
+        cout <<"\n\t\t      |  D A T A   K O S O N G  |"; 
+        cout <<"\n\t\t      ==========================="; 
+}
+void amogusExit(){
+        cout <<"\n\t\t                  ||||||||||||     ";
+        cout <<"\n\t\t                |||||||||||||||||| ";
+        cout <<"\n\t\t               |||||||||||||||||||||";
+        cout <<"\n\t\t          |||| ||||||||||      ==== ||";
+        cout <<"\n\t\t        |||||| ||||||||         ===  |";
+        cout <<"\n\t\t        |||||| ||||||||||           ||";
+        cout <<"\n\t\t        |||||| |||||||||||||||||||||||";
+        cout <<"\n\t\t        |||||| |||||||| RESTORAN |||||";
+        cout <<"\n\t\t        |||||| ||||||||| PUNYA |||||||";
+        cout <<"\n\t\t         ||||| |||||||||| RASA |||||||";
+        cout <<"\n\t\t           ||| |||||||||||||||||||||||";
+        cout <<"\n\t\t             | |||||||||||||||||||||||";
+        cout <<"\n\t\t     ///////   |||||||||||| ||||||||||";
+        cout <<"\n\t\t    ///////    |||||||||||| ||||||||||";
+        cout <<"\n\t\t   ///////     ||||||||||    |||||||||";
+        cout <<"\n\t\t               ||||||||||    |||||||||";
+}

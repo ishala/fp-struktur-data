@@ -6,19 +6,21 @@
 
 #include "projekfix.cpp"
 
+
 using namespace std;
 
 #define MAX 10  
 
 int head = 0;
 int tail = 0;
+int antrian = 0;
 int ID1, ID2;
 bool ordering, valid = true;
 char pass;
 
 struct DATA
 {
-  string name;
+  //string name;
   vector<vector<int> > order; 
 } buyer[MAX];
 
@@ -62,20 +64,28 @@ void displayData(DATA* x)
   {
     for (size_t i = head; i < tail; i++)
     {
-      cout << "Antrian ke-" << i+1 << "\n\n";
+      // cout << "Antrian ke-" << i+1 << "\n\n";
+      cout << "=====================\n";
+      cout << "|| Antrian ke - " << i+1 << "  ||\n";
+      cout << "===============================================\n";
       for (size_t j = 0; j < x[i].order.size(); j++)
       {
         total += hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
-        cout << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
-        spacing(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
-        cout << "  ||  Rp. "; dot(&hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); cout << "\n";
+        cout << "  " << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]; 
+        spacingMakanan(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]);
+        cout << "|| Rp. "; dot(&hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
+        spacingHarga();
+        cout << "\n";
       } 
-      cout << "\n";
-      cout << "TOTAL: "; dot(&total);
-    }
+      cout << "===============================================\n";
+      //spacingTotal();
+      cout << "        TOTAL              || Rp. "; dot(&total); cout << "  \n";
+      cout << "===============================================\n\n\n";
+    };
   } else
   {
-    cout << "\t\t|| Data kosong! ||";
+    system("cls");
+    amogusEmpty();
   }
 }
 
@@ -87,9 +97,11 @@ void deQueue(DATA* x)
     copy(x+1, x+MAX, x);
   } else
   {
-    cout << "Data penuh!";
+    system("cls");
+    amogusEmpty();
   }
   tail--;
+  antrian--;
 }
 
 void sortDescending(DATA* x)
