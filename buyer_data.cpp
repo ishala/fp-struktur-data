@@ -52,9 +52,6 @@ bool pilihMenu(){
       }
 }
 
-
-
-
 //MENAMBAH DATA
 void enQueue(DATA* x)
 {

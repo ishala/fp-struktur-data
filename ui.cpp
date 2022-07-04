@@ -201,10 +201,6 @@ using namespace std;
                 {
                     headerDrink();
                     detailDrink();
-                } else if (go.chsCat == 3)
-                {   
-                    system("cls");
-                    !pilihMenu();
                 }
                 break;
             case 2:
