@@ -52,29 +52,14 @@ bool pilihMenu(){
       }
 }
 
-//UBAH ID1
-int controlID1(){
-  
-  if (go.chsFood == 1)
-    {
-      ID1 = 0;
-    } if (go.chsFood == 2)
-    {
-      ID1 = 1;
-    } if (go.chsFood == 3)
-    {
-      ID1 = 2;
-    } if (go.chsFood == 4)
-    {
-      ID1 = 3;
-    } 
-}
+
 
 
 //MENAMBAH DATA
 void enQueue(DATA* x)
 {
-  controlID1();
+  cin >>  ID1;
+  ID1-=1;
   if (!isFull())
   {
     
@@ -103,7 +88,6 @@ void enQueue(DATA* x)
 };
 
 
-//MENAMPILKAN DATA
 void displayData(DATA* x)
 {
   if (!isEmpty())
