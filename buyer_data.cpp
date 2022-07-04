@@ -11,19 +11,9 @@ using namespace std;
 int head = 0;
 int tail = 0;
 int ID1, ID2;
+bool ordering, valid = true;
+char pass;
 
-struct pilihMenu
-    {
-        int subMenu;
-        int chsCat;
-        bool menuCon = true;
-    }go;
-
-struct Pilih
-{
-  bool ordering, valid = true;
-  char pass;
-}p;
 
 
 struct DATA
@@ -48,15 +38,10 @@ bool pilihMenu(){
 //MENAMBAH DATA
 void enQueue(DATA* x)
 {
-  cin >>  ID1;
-  ID1 -= 1;
   if (!isFull())
   {
-    cout << "ANTRIAN KE-" << tail+1 << "\n\n";
     do
     {
-      cout << "Masukkan Pilihan : ";
-      cin >> ID2;
       if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
       {
         p.valid = true;

@@ -21,6 +21,12 @@ using namespace std;
             os.imbue(locale(os.getloc(), new dotted));
         }
     };
+    
+    struct pilihMenu{
+      int subMenu;
+      int chsCat;
+      bool menuCon = true;
+    }go;
 
     void dot(int* x){
         stringstream ss;
