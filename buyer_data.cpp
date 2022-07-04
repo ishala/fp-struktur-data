@@ -16,7 +16,6 @@ struct pilihMenu
     {
         int subMenu;
         int chsCat;
-        int chsFood;
         bool menuCon = true;
     }go;
 
