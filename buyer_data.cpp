@@ -52,25 +52,24 @@ void enQueue(DATA* x)
   ID1 -= 1;
   if (!isFull())
   {
-    
-      cout << "ANTRIAN KE-" << tail+1 << "\n\n";
-      do
+    cout << "ANTRIAN KE-" << tail+1 << "\n\n";
+    do
+    {
+      cout << "Masukkan Pilihan : ";
+      cin >> ID2;
+      if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
       {
-        cout << "Masukkan Pilihan : ";
-        cin >> ID2;
-        if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
-        {
-          p.valid = true;
-          x[tail].order.push_back(vector<int>());
-          x[tail].order[x[tail].order.size()-1].push_back(ID1);
-          x[tail].order[x[tail].order.size()-1].push_back(ID2); 
-        } else
-        {
-          system("CLS");
-          cout << "Pilihan tidak valid!\n";
-          p.valid = false;
-        }
-      } while (!p.valid); 
+        p.valid = true;
+        x[tail].order.push_back(vector<int>());
+        x[tail].order[x[tail].order.size()-1].push_back(ID1);
+        x[tail].order[x[tail].order.size()-1].push_back(ID2); 
+      } else
+      {
+        system("CLS");
+        cout << "Pilihan tidak valid!\n";
+        p.valid = false;
+      }
+    } while (!p.valid);
   } else{
     cout << "Data Penuh!";
   }
