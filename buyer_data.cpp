@@ -14,8 +14,6 @@ int ID1, ID2;
 bool ordering, valid = true;
 char pass;
 
-
-
 struct DATA
 {
   string name;
