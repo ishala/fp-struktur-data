@@ -11,11 +11,13 @@ using namespace std;
 int head = 0;
 int tail = 0;
 int ID1, ID2;
+
 struct pilihMenu
     {
         int subMenu;
         int chsCat;
         int chsFood;
+        bool menuCon = true;
     }go;
 
 struct Pilih
@@ -41,16 +43,16 @@ bool isEmpty(){return (tail == 0) ? true : false;};
 
 bool isFull(){return (tail == MAX) ? true : false;};
 
-bool pilih(){
-      if (p.pass=='y' || p.pass == 'Y')
-      {
-        return true;
-      } else
-      {
+//KONDISI LOOP
+bool pilihMenu(){
+      if(p.pass == '>'){
         return false;
-      }    
+      } else{
+        return true;
+      }
 }
-// Dari sini
+
+//UBAH ID1
 int controlID1(){
   
   if (go.chsFood == 1)
@@ -68,6 +70,8 @@ int controlID1(){
     } 
 }
 
+
+//MENAMBAH DATA
 void enQueue(DATA* x)
 {
   controlID1();
@@ -91,12 +95,15 @@ void enQueue(DATA* x)
           cout << "Pilihan tidak valid!\n";
           p.valid = false;
         }
-      } while (!p.valid);
-    
+      } while (!p.valid); 
+  } else{
+    cout << "Data Penuh!";
   }
   tail++;
 };
 
+
+//MENAMPILKAN DATA
 void displayData(DATA* x)
 {
   if (!isEmpty())
@@ -118,8 +125,7 @@ void displayData(DATA* x)
   }
 }
 
-
-
+//HAPUS DATA
 void deQueue(DATA* x)
 {
   if (!isEmpty())
@@ -131,3 +137,10 @@ void deQueue(DATA* x)
   }
   tail--;
 }
+
+void add(){
+        cout << "Mau menambah?(y/n) ";
+        cin >> p.pass;
+        system("CLS");
+        pilihMenu();
+    }

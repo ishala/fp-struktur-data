@@ -1,9 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
+#include <conio.h>
 #include "buyer_data.cpp"
 
 using namespace std;
-
+    
     void headerResto(){
         cout << "\t\t=====================================" << endl;
         cout << "\t\t||       RESTORAN PUNYA RASA       ||" << endl;
@@ -58,21 +59,15 @@ using namespace std;
         cout << "\t\t||   2. Cumi                           ||" << endl;
         cout << "\t\t||   3. Udang                          ||" << endl;
         cout << "\t\t||   4. Sapi                           ||" << endl;
-        cout << "\t\t||   5. Exit                           ||" << endl;
         cout << "\t\t=========================================" << endl;
         cout << "\t\t     pilih : "; cin >> go.chsFood;
     }
-    void add(){
-        cout << "Mau menambah?(y/n) ";
-        cin >> p.pass;
-        system("CLS");
-        pilih();
-    }
+    
     void detailFood(){
         system("CLS");
         headerFood(); // LAYOUT HEADER 
         switch (go.chsFood)  
-        {
+    {
         case 1: // MEMILIH OPSI 1 DARI MENU MAKANAN
             for (int i = 0; i < 1; i++)
             {
@@ -93,7 +88,6 @@ using namespace std;
                 }
             }
             break;
-//i
         case 2: // MEMILIH OPSI 2 DARI MENU MAKANAN
             for (int i = 1; i < 2; i++)
             {
@@ -113,7 +107,6 @@ using namespace std;
                 }
             }
             break;
-
         case 3: // MEMILIH OPSI 3 DARI MENU MAKANAN
             for (int i = 2; i < 3; i++)
             {
@@ -155,13 +148,15 @@ using namespace std;
                 }
             }
             break;
-        case 5:
-        
         default:
             cout << "Masukkan input dengan benar!";
             break;
-        }
+        
     }
+    getch();
+    system("cls");
+    // pilihMenu();
+}
 
     void detailDrink()
     {
@@ -186,17 +181,17 @@ using namespace std;
                 }
             }
         }
-    
     }
 
     int main(){
         do
-        {
+        {   
             headerResto();
             mainMenu();
-            if (go.subMenu == 1)
+            switch (go.subMenu)
             {
-                category();
+            case 1:
+            category();
                 if (go.chsCat == 1)
                 {
                     headerFood();
@@ -207,14 +202,28 @@ using namespace std;
                     headerDrink();
                     detailDrink();
                 } else if (go.chsCat == 3)
-                {
-                    !pilih();
+                {   
+                    system("cls");
+                    !pilihMenu();
                 }
-                
-            } else if (go.subMenu == 2)
-            {
-                
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                !pilihMenu();
+                break;
+            default:
+                cout << "Invalid input, please try again";
+                break;
             }
             
-        } while (pilih());
+        } while (pilihMenu());
     }
+
+//|| !go.menuCon
