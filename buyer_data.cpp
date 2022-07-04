@@ -93,7 +93,6 @@ void deQueue(DATA* x)
   tail--;
 }
 
-<<<<<<< HEAD
 void sortDescending(DATA* x, size_t index)
 {
 
@@ -131,11 +130,3 @@ int main(int argc, char const *argv[])
 {
   return 0;
 }
-=======
-void add(){
-        cout << "Mau menambah?(y/n) ";
-        cin >> pass;
-        system("CLS");
-        pilihMenu();
-    }
->>>>>>> 5979f3636007f32cb326a2d2748e7d3feccfc679
