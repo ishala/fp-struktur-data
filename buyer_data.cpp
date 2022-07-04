@@ -37,14 +37,22 @@ void enQueue(DATA* x)
 {
   if (!isFull())
   {
-    valid = true;
-    x[tail].order.push_back(vector<int>());
-    x[tail].order[x[tail].order.size()-1].push_back(ID1);
-    x[tail].order[x[tail].order.size()-1].push_back(ID2); 
-    cout << "Pilihan tercatat!\n";
-
-  } else
-  {
+    do
+    {
+      if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
+      {
+        valid = true;
+        x[tail].order.push_back(vector<int>());
+        x[tail].order[x[tail].order.size()-1].push_back(ID1);
+        x[tail].order[x[tail].order.size()-1].push_back(ID2); 
+      } else
+      {
+        system("CLS");
+        cout << "Pilihan tidak valid!\n";
+        valid = false;
+      }
+    } while (!valid);
+  } else{
     cout << "Data Penuh!";
   }
   tail++;
@@ -85,6 +93,7 @@ void deQueue(DATA* x)
   tail--;
 }
 
+<<<<<<< HEAD
 void sortDescending(DATA* x, size_t index)
 {
 
@@ -122,3 +131,11 @@ int main(int argc, char const *argv[])
 {
   return 0;
 }
+=======
+void add(){
+        cout << "Mau menambah?(y/n) ";
+        cin >> pass;
+        system("CLS");
+        pilihMenu();
+    }
+>>>>>>> 5979f3636007f32cb326a2d2748e7d3feccfc679
