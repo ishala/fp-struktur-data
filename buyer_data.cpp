@@ -28,14 +28,8 @@ struct Pilih
 
 struct DATA
 {
+  string name;
   vector<vector<int> > order; 
-  DATA()
-  {
-    for (size_t i = 0; i < MAX; i++)
-    {
-      order.resize(0, vector<int>(2, 0));
-    }
-  } 
 } buyer[MAX];
 
 bool isEmpty(){return (tail == 0) ? true : false;};
@@ -51,14 +45,11 @@ bool pilihMenu(){
       }
 }
 
-
-
-
 //MENAMBAH DATA
 void enQueue(DATA* x)
 {
   cin >>  ID1;
-  ID1-=1;
+  ID1 -= 1;
   if (!isFull())
   {
     
