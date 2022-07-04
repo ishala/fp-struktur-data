@@ -14,8 +14,6 @@ int ID1, ID2;
 bool ordering, valid = true;
 char pass;
 
-
-
 struct DATA
 {
   string name;
@@ -26,36 +24,19 @@ bool isEmpty(){return (tail == 0) ? true : false;};
 
 bool isFull(){return (tail == MAX) ? true : false;};
 
-//KONDISI LOOP
-bool pilihMenu(){
-      if(p.pass == '>'){
-        return false;
-      } else{
-        return true;
-      }
-}
-
 //MENAMBAH DATA
 void enQueue(DATA* x)
 {
   if (!isFull())
   {
-    do
-    {
-      if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
-      {
-        p.valid = true;
-        x[tail].order.push_back(vector<int>());
-        x[tail].order[x[tail].order.size()-1].push_back(ID1);
-        x[tail].order[x[tail].order.size()-1].push_back(ID2); 
-      } else
-      {
-        system("CLS");
-        cout << "Pilihan tidak valid!\n";
-        p.valid = false;
-      }
-    } while (!p.valid);
-  } else{
+    valid = true;
+    x[tail].order.push_back(vector<int>());
+    x[tail].order[x[tail].order.size()-1].push_back(ID1);
+    x[tail].order[x[tail].order.size()-1].push_back(ID2); 
+    cout << "Pilihan tercatat!\n";
+
+  } else
+  {
     cout << "Data Penuh!";
   }
   tail++;
@@ -96,9 +77,22 @@ void deQueue(DATA* x)
   tail--;
 }
 
-void add(){
-        cout << "Mau menambah?(y/n) ";
-        cin >> p.pass;
-        system("CLS");
-        pilihMenu();
-    }
+
+
+// //KONDISI LOOP
+// bool pilihMenu()
+// {
+//       if(pass == '>'){
+//         return false;
+//       } else{
+//         return true;
+//       }
+// }
+
+// void add()
+// {
+//         cout << "Mau menambah?(y/n) ";
+//         cin >> pass;
+//         system("CLS");
+//         pilihMenu();
+// }
