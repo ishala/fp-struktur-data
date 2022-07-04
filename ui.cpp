@@ -4,40 +4,23 @@
 #include "buyer_data.cpp"
 
 using namespace std;
-    
+    char oke;
+    bool isOke(){
+        if(oke == 'y' || oke == 'Y')
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+        
+    }
+
     void headerResto(){
         cout << "\t\t=====================================" << endl;
         cout << "\t\t||       RESTORAN PUNYA RASA       ||" << endl;
         cout << "\t\t=====================================" << endl;
     }
-
-    void mainMenu(){
-        cout << "\t\t||=================================||" << endl;
-        cout << "\t\t||   1. Tampil Menu                ||" << endl;
-        cout << "\t\t||   2. Pesan Makanan              ||" << endl;
-        cout << "\t\t||   3. Tampil Data                ||" << endl;
-        cout << "\t\t||   4. Hapus Data                 ||" << endl;
-        cout << "\t\t||   5. Menu                       ||" << endl;
-        cout << "\t\t||   6. Exit                       ||" << endl;
-        cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.subMenu;
-    }
-
-
-    void category(){
-        system("CLS");
-        cout << "\t\t=====================================" << endl;
-        cout << "\t\t||      MENU RESTO PUNYA RASA      ||" << endl;
-        cout << "\t\t||       PILIH KATEGORI MENU       ||" << endl;
-        cout << "\t\t||=================================||" << endl;
-        cout << "\t\t||   1. Makanan                    ||" << endl;
-        cout << "\t\t||   2. Minuman                    ||" << endl;
-        cout << "\t\t||   3. Exit                       ||" << endl;
-        cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.chsCat;
-        
-    }
-
     void headerFood(){
         system("CLS");
         cout << "\t\t=========================================" << endl;
@@ -51,6 +34,30 @@ using namespace std;
         cout << "\t\t||               MINUMAN               ||" << endl;
         cout << "\t\t=========================================" << endl;
     }
+    void mainMenu(){
+        cout << "\t\t||=================================||" << endl;
+        cout << "\t\t||   1. Tampil Menu                ||" << endl;
+        cout << "\t\t||   2. Pesan Makanan              ||" << endl;
+        cout << "\t\t||   3. Tampil Data                ||" << endl;
+        cout << "\t\t||   4. Hapus Data                 ||" << endl;
+        cout << "\t\t||   5. Exit                       ||" << endl;
+        cout << "\t\t=====================================" << endl;
+        cout << "\t\t     pilih : "; cin >> go.subMenu;
+    }
+
+
+    void category(){
+        system("CLS");
+        cout << "\t\t=====================================" << endl;
+        cout << "\t\t||      MENU RESTO PUNYA RASA      ||" << endl;
+        cout << "\t\t||       PILIH KATEGORI MENU       ||" << endl;
+        cout << "\t\t||=================================||" << endl;
+        cout << "\t\t||   1. Makanan                    ||" << endl;
+        cout << "\t\t||   2. Minuman                    ||" << endl;
+        cout << "\t\t=====================================" << endl;
+        cout << "\t\t     pilih : "; cin >> go.chsCat;
+        
+    }
 
     void foodMenu(){
         system("CLS");
@@ -60,13 +67,13 @@ using namespace std;
         cout << "\t\t||   3. Udang                          ||" << endl;
         cout << "\t\t||   4. Sapi                           ||" << endl;
         cout << "\t\t=========================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.chsFood;
+        cout << "\t\t     pilih : "; cin >> ID1;
     }
     
     void detailFood(){
         system("CLS");
         headerFood(); // LAYOUT HEADER 
-        switch (go.chsFood)  
+        switch (ID1)  
     {
         case 1: // MEMILIH OPSI 1 DARI MENU MAKANAN
             for (int i = 0; i < 1; i++)
@@ -204,22 +211,32 @@ using namespace std;
                 }
                 break;
             case 2:
+                do
+                {
+                    cout << "Apakah ingin menambah pesanan? y/n : "; cin >> oke;
+                    isOke();
+                } while (isOke());
+                system("cls");
                 break;
             case 3:
+                displayData(buyer);
+                getch();
+                system("cls");
                 break;
             case 4:
+                cout << "Data sudah dihapus";
+                getch();
+                system("cls");
                 break;
             case 5:
-                break;
-            case 6:
-                !pilihMenu();
+                pilihMenu();
                 break;
             default:
                 cout << "Invalid input, please try again";
                 break;
             }
             
-        } while (pilihMenu());
+        } while (!pilihMenu());
     }
 
 //|| !go.menuCon

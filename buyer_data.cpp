@@ -28,7 +28,7 @@ bool isFull(){return (tail == MAX) ? true : false;};
 
 //KONDISI LOOP
 bool pilihMenu(){
-      if(p.pass == '>'){
+      if(pass == '>'){
         return false;
       } else{
         return true;
@@ -44,7 +44,7 @@ void enQueue(DATA* x)
     {
       if (ID1 < 5 && ID2 < 10 && menuMakan[ID1][ID2] != "em") 
       {
-        p.valid = true;
+        valid = true;
         x[tail].order.push_back(vector<int>());
         x[tail].order[x[tail].order.size()-1].push_back(ID1);
         x[tail].order[x[tail].order.size()-1].push_back(ID2); 
@@ -52,9 +52,9 @@ void enQueue(DATA* x)
       {
         system("CLS");
         cout << "Pilihan tidak valid!\n";
-        p.valid = false;
+        valid = false;
       }
-    } while (!p.valid);
+    } while (!valid);
   } else{
     cout << "Data Penuh!";
   }
@@ -98,7 +98,7 @@ void deQueue(DATA* x)
 
 void add(){
         cout << "Mau menambah?(y/n) ";
-        cin >> p.pass;
+        cin >> pass;
         system("CLS");
         pilihMenu();
     }
