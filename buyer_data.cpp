@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
+#include <algorithm>
+
 #include "projekfix.cpp"
 
 using namespace std;
 
-#define MAX 10
+#define MAX 10  
 
 int head = 0;
 int tail = 0;
@@ -23,6 +25,12 @@ struct DATA
 bool isEmpty(){return (tail == 0) ? true : false;};
 
 bool isFull(){return (tail == MAX) ? true : false;};
+
+bool priceIsHigher(int i, int index, DATA* x)
+{
+  return (hargaMakan[x[index].order[i][0]][x[index].order[i][1]] < hargaMakan[x[index].order[i+1][0]][x[index].order[i+1][1]]) ? true : false;
+};
+
 
 //MENAMBAH DATA
 void enQueue(DATA* x)
@@ -60,7 +68,7 @@ void displayData(DATA* x)
     }
   } else
   {
-    cout << "Data kosong!.";
+    cout << "Data kosong!";
   }
 }
 
@@ -77,7 +85,21 @@ void deQueue(DATA* x)
   tail--;
 }
 
+void sortDescending(DATA* x, size_t index)
+{
 
+  for (size_t h = 0; h < x[index].order.size()-1; h++)
+  {
+    for (size_t i = 0; i < x[index].order.size()-1; i++) 
+    {
+      if (priceIsHigher(i, index, x))
+      {
+        swap(x[index].order[i][0], x[index].order[i+1][0]);
+        swap(x[index].order[i][1], x[index].order[i+1][1]);
+      }
+    }
+  }
+}
 
 // //KONDISI LOOP
 // bool pilihMenu()
@@ -96,3 +118,7 @@ void deQueue(DATA* x)
 //         system("CLS");
 //         pilihMenu();
 // }
+int main(int argc, char const *argv[])
+{
+  return 0;
+}

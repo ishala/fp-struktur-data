@@ -25,7 +25,7 @@ using namespace std;
     struct pilihMenu{
       int subMenu;
       int chsCat;
-      bool menuCon = true;
+      bool menuCon;
     }go;
 
     void dot(int* x){
