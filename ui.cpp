@@ -1,20 +1,46 @@
 #include <iostream>
 #include <stdlib.h>
 #include <conio.h>
+#include <windows.h>
 #include "buyer_data.cpp"
 
 using namespace std;
-    char oke;
-    bool isOke(){
-        if(oke == 'y' || oke == 'Y')
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
-        
+char oke;
+int subMenu, chsCat;
+bool menuCon; 
+bool pilihMenu = true;
+
+    void pilihItem(){
+            int i = ID1;
+
+            for (int j = 0; j < 10; j++)
+            {   
+                if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
+                {   
+                    cout << " ";
+                } else{ // JIKA ARRAY TIDAK KOSONG
+                    cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
+                    for (int k = 0; k < space; k++)
+                    {
+                        cout << " ";
+                    }
+                    cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
+                    }
+            }
+
+            cout << "\t\t=========================================" << endl;
+            cout << "\t\tPilih: "; cin >> ID2;
+            ID2-=1;
+            enQueue(buyer);
+            cout << "\t\tApakah ingin menambah pesanan? y/n : "; cin >> oke;
+            if (oke == 'y'|| oke == 'Y'){
+                ordering = true;
+            } else {
+                ordering = false;
+            }
     }
+    
+    
 
     void headerResto(){
         cout << "\t\t=====================================" << endl;
@@ -39,10 +65,10 @@ using namespace std;
         cout << "\t\t||   1. Tampil Menu                ||" << endl;
         cout << "\t\t||   2. Pesan Makanan              ||" << endl;
         cout << "\t\t||   3. Tampil Data                ||" << endl;
-        cout << "\t\t||   4. Hapus Data                 ||" << endl;
+        cout << "\t\t||   4. Dequeue                    ||" << endl;
         cout << "\t\t||   5. Exit                       ||" << endl;
         cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.subMenu;
+        cout << "\t\t     pilih : "; cin >> subMenu;
     }
 
 
@@ -55,8 +81,12 @@ using namespace std;
         cout << "\t\t||   1. Makanan                    ||" << endl;
         cout << "\t\t||   2. Minuman                    ||" << endl;
         cout << "\t\t=====================================" << endl;
-        cout << "\t\t     pilih : "; cin >> go.chsCat;
-        
+        cout << "\t\t     pilih : "; cin >> chsCat;
+
+        if (chsCat == 2)
+        {
+            ID1 = 4;
+        } 
     }
 
     void foodMenu(){
@@ -67,99 +97,14 @@ using namespace std;
         cout << "\t\t||   3. Udang                          ||" << endl;
         cout << "\t\t||   4. Sapi                           ||" << endl;
         cout << "\t\t=========================================" << endl;
-        cout << "\t\t     pilih : "; cin >> ID1;
+        cout << "\t\t     pilih : "; cin >> ID1; ID1 -= 1;
     }
     
     void detailFood(){
         system("CLS");
         headerFood(); // LAYOUT HEADER 
-        switch (ID1)  
-    {
-        case 1: // MEMILIH OPSI 1 DARI MENU MAKANAN
-            for (int i = 0; i < 1; i++)
-            {
-                for (int j = 0; j < secondD; j++)
-                {   
-                    if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
-                    {   
-                        cout << " ";
-                    } else
-                    { // JIKA ARRAY TIDAK KOSONG
-                        cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
-                        for (int k = 0; k < space; k++)
-                        {
-                            cout << " ";
-                        }
-                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
-                    }
-                }
-            }
-            break;
-        case 2: // MEMILIH OPSI 2 DARI MENU MAKANAN
-            for (int i = 1; i < 2; i++)
-            {
-                for (int j = 0; j < secondD; j++)
-                {   
-                    if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
-                    {   
-                        cout << " ";
-                    } else{ // JIKA ARRAY TIDAK KOSONG
-                        cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
-                        for (int k = 0; k < space; k++)
-                        {
-                            cout << " ";
-                        }
-                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
-                        }
-                }
-            }
-            break;
-        case 3: // MEMILIH OPSI 3 DARI MENU MAKANAN
-            for (int i = 2; i < 3; i++)
-            {
-                for (int j = 0; j < secondD; j++)
-                {   
-                    if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
-                    {   
-                        cout << " ";
-                    } else{ // JIKA ARRAY TIDAK KOSONG
-                        cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
-                        for (int k = 0; k < space; k++)
-                        {
-                            cout << " ";
-                        }
-                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
-                        }
-                }
-            }
-            break;
-        
-        case 4: // MEMILIH OPSI 2 DARI MENU MAKANAN
-            for (int i = 3; i < 4; i++)
-            {
-                for (int j = 0; j < secondD; j++)
-                {   
-                    if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
-                    {   
-                        cout << " ";
-                    } 
-                    else
-                    { // JIKA ARRAY TIDAK KOSONG
-                        cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
-                        for (int k = 0; k < space; k++)
-                        {
-                            cout << " ";
-                        }
-                        cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
-                    }
-                }
-            }
-            break;
-        default:
-            cout << "Masukkan input dengan benar!";
-            break;
-        
-    }
+        pilihItem();
+    cout << "\n\t\tKlik tombol apa saja...";
     getch();
     system("cls");
     // pilihMenu();
@@ -169,53 +114,59 @@ using namespace std;
     {
     system("CLS");
     headerDrink();
-    for (int i = 4; i <= 4; i++)
-        {
-            for (int j = 0; j < secondD; j++)
-            {   
-                if (menuMakan[i][j] == "em" || hargaMakan[i][j] == 0) // JIKA SISA ARRAY KOSONG
-                {   
-                    cout << " ";
-                } 
-                else
-                { // JIKA ARRAY TIDAK KOSONG
-                    cout << "\t\t " << j+1 << ". " << menuMakan[i][j];
-                    for (int k = 0; k < space; k++)
-                    {
-                        cout << " ";
-                    }
-                    cout << "  ||  Rp. "; dot(&hargaMakan[i][j]);
-                }
-            }
-        }
+    pilihItem();
+    cout << "\n\t\tKlik tombol apa saja...";
+    getch();
+    system("cls");
     }
 
     int main(){
+        cout <<"\n\t\t            |||||||||||| ";
+        cout <<"\n\t\t          |||||||||||||||||| ";
+        cout <<"\n\t\t         |||||||||||||||||||||";
+        cout <<"\n\t\t    |||| ||||||||||      ==== ||";
+        cout <<"\n\t\t  |||||| ||||||||         ===  |";
+        cout <<"\n\t\t  |||||| ||||||||||           ||";
+        cout <<"\n\t\t  |||||| |||||||||||||||||||||||";
+        cout <<"\n\t\t  |||||| |||||||| RESTORAN |||||";
+        cout <<"\n\t\t  |||||| ||||||||| PUNYA |||||||";
+        cout <<"\n\t\t   ||||| |||||||||| RASA |||||||";
+        cout <<"\n\t\t     ||| |||||||||||||||||||||||";
+        cout <<"\n\t\t       | |||||||||||||||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         |||||||||||| ||||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+        cout <<"\n\t\t         ||||||||||    |||||||||";
+
+
+        
+        cout << "\n";
         do
         {   
             headerResto();
             mainMenu();
-            switch (go.subMenu)
+            switch (subMenu)
             {
             case 1:
-            category();
-                if (go.chsCat == 1)
-                {
-                    headerFood();
-                    foodMenu();
-                    detailFood();
-                } else if (go.chsCat == 2)
-                {
-                    headerDrink();
-                    detailDrink();
-                }
-                break;
-            case 2:
                 do
                 {
-                    cout << "Apakah ingin menambah pesanan? y/n : "; cin >> oke;
-                    isOke();
-                } while (isOke());
+                    category();
+                    if (chsCat == 1)
+                    {
+                        headerFood();
+                        foodMenu();
+                        detailFood();
+                    } else if (chsCat == 2)
+                    {
+                        headerDrink();
+                        detailDrink();
+                    }
+                    sortDescending(buyer);
+                }while (ordering);
+                tail++;
+                break;
+            case 2:
+                cout << "Kosong!";
                 system("cls");
                 break;
             case 3:
@@ -224,19 +175,20 @@ using namespace std;
                 system("cls");
                 break;
             case 4:
-                cout << "Data sudah dihapus";
+                cout << "\t\t\n\nData sudah dihapus";
+                deQueue(buyer);
                 getch();
                 system("cls");
                 break;
             case 5:
-                pilihMenu();
+                system("CLS");
+
+                
+                pilihMenu = false;
                 break;
             default:
                 cout << "Invalid input, please try again";
                 break;
             }
-            
-        } while (!pilihMenu());
+        } while (pilihMenu);
     }
-
-//|| !go.menuCon

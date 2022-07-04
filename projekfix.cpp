@@ -22,11 +22,9 @@ using namespace std;
         }
     };
     
-    struct pilihMenu{
-      int subMenu;
-      int chsCat;
-      bool menuCon;
-    }go;
+    // struct pilihMenu{
+
+    // }go;
 
     void dot(int* x){
         stringstream ss;
@@ -41,6 +39,7 @@ using namespace std;
             cout << " ";
         }
     }
+
 
     string menuMakan[firstD][secondD]={{"Ayam Goreng Tepung", "Ayam Bakar", "Ayam Lada Hitam", "Ayam Penyet", "Ayam Koloke", "em", "em", "em", "em", "em"},
                             {"Cumi Tepung", "Cumi Goreng Mentega", "Cumi Asam Manis", "Cumi Saus Padang", "em", "em", "em", "em", "em", "em"},

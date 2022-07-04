@@ -45,17 +45,13 @@ void enQueue(DATA* x)
         x[tail].order.push_back(vector<int>());
         x[tail].order[x[tail].order.size()-1].push_back(ID1);
         x[tail].order[x[tail].order.size()-1].push_back(ID2); 
-      } else
-      {
-        system("CLS");
-        cout << "Pilihan tidak valid!\n";
-        valid = false;
-      }
+        cout << "\t\tBerhasil memilih!\n";
+      } 
     } while (!valid);
   } else{
-    cout << "Data Penuh!";
+    cout << "\t\tData Penuh!";
   }
-  tail++;
+  
 };
 
 
@@ -76,7 +72,7 @@ void displayData(DATA* x)
     }
   } else
   {
-    cout << "Data kosong!";
+    cout << "\t\t|| Data kosong! ||";
   }
 }
 
@@ -93,40 +89,18 @@ void deQueue(DATA* x)
   tail--;
 }
 
-void sortDescending(DATA* x, size_t index)
+void sortDescending(DATA* x)
 {
-
-  for (size_t h = 0; h < x[index].order.size()-1; h++)
+  for (size_t h = 0; h < x[tail].order.size()-1; h++)
   {
-    for (size_t i = 0; i < x[index].order.size()-1; i++) 
+    for (size_t i = 0; i < x[tail].order.size()-1; i++) 
     {
-      if (priceIsHigher(i, index, x))
+      if (priceIsHigher(i, tail, x))
       {
-        swap(x[index].order[i][0], x[index].order[i+1][0]);
-        swap(x[index].order[i][1], x[index].order[i+1][1]);
+        swap(x[tail].order[i][0], x[tail].order[i+1][0]);
+        swap(x[tail].order[i][1], x[tail].order[i+1][1]);
       }
     }
   }
 }
 
-// //KONDISI LOOP
-// bool pilihMenu()
-// {
-//       if(pass == '>'){
-//         return false;
-//       } else{
-//         return true;
-//       }
-// }
-
-// void add()
-// {
-//         cout << "Mau menambah?(y/n) ";
-//         cin >> pass;
-//         system("CLS");
-//         pilihMenu();
-// }
-int main(int argc, char const *argv[])
-{
-  return 0;
-}
