@@ -82,10 +82,10 @@ void amogus(){
     }
 
 void amogusEmpty(){                              
-        cout <<"\n\t                                    ____";                  
-        cout <<"\n\t                                   ((   ))";
-        cout <<"\n\t                                       ))";  
-        cout <<"\n\t                                     ||";   
+        cout <<"\n\t\t                            ===_";                  
+        cout <<"\n\t\t                          ((    |)";
+        cout <<"\n\t\t                               /)";  
+        cout <<"\n\t\t                             ||";   
         cout <<"\n\t\t            ||||||||||||     00";
         cout <<"\n\t\t          |||||||||||||||||| ";
         cout <<"\n\t\t         |||||||||||||||||||||";
