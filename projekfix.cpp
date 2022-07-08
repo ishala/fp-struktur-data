@@ -1,11 +1,17 @@
 #include <iostream>
-#include <vector>
 #include <sstream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+#include <conio.h>
+#include <windows.h>
 
 
 #define firstD 5
 #define secondD 10
 #define space 20-menuMakan[i][j].size() 
+
 using namespace std;
 
     struct dotted:numpunct<char> {

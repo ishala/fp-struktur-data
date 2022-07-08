@@ -1,7 +1,3 @@
-#include <iostream>
-#include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
 #include "buyer_data.cpp"
 
 using namespace std;
