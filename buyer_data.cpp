@@ -14,7 +14,6 @@ char pass;
 
 struct DATA
 {
-  int A;
   vector<vector<int> > order; 
 } buyer[MAX];
 
@@ -113,7 +112,49 @@ void sortDescending(DATA* x)
   }
 }
 
-void searchMenu(DATA* x)
+void searchMenu(DATA* x, int a, int b)
 {
+  bool isFound = false;
+  vector<vector<int> > searchElement;
+  vector<vector<int> >::iterator it[tail+1];
+  searchElement.push_back(vector<int>());
+  searchElement[searchElement.size()-1].push_back(a);
+  searchElement[searchElement.size()-1].push_back(b);
+  
+
+  for (size_t i = 0; i < tail+1; i++)
+  {
+    it[i] = search(x[i].order.begin(), x[i].order.end(), searchElement.begin(), searchElement.end());
+  }
+
+  for (size_t i = 0; i < tail+1; i++)
+  {
+    if (it[i] != x[i].order.end())
+    {
+      if (i==0)
+      {
+        cout << "Menu dipesan dalam antrian: ";
+        cout << i+1;
+      } else
+      {
+        cout << ", " << i+1;
+      } 
+      isFound = true; 
+
+      if(i == tail-1)
+      {
+        cout << ".";
+      }
+      
+    }
+
+
+  } 
+
+  if (!isFound)
+  {
+    cout << "Menu tidak ada di dalam antrian!";
+  }
   
 }
+

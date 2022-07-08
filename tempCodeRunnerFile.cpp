@@ -1,1 +1,12 @@
-                }while (ordering);
+  buyer[0].order.push_back(vector<int>());
+  buyer[0].order[0].push_back(1);
+  buyer[0].order[0].push_back(2);
+  tail++;
+  buyer[1].order.push_back(vector<int>());
+  buyer[1].order[0].push_back(1);
+  buyer[1].order[0].push_back(2);
+  tail++;
+  buyer[2].order.push_back(vector<int>());
+  buyer[2].order[0].push_back(1);
+  buyer[2].order[0].push_back(2);
+  tail++;

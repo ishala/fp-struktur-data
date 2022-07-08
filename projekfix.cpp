@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <conio.h>
 #include <windows.h>
+#include <functional>
 
 
 #define firstD 5
