@@ -1,19 +1,20 @@
 #include "projekfix.cpp"
 
+
 using namespace std;
 
 #define MAX 10  
 
-short int head = 0;
-short int tail = 0;
-short int antrian = 0;
-short int ID1, ID2;
+int head = 0;
+int tail = 0;
+int antrian = 0;
+int ID1, ID2;
 bool ordering, valid = true;
 char pass;
 
 struct DATA
 {
-  short int A;
+  int A;
   vector<vector<int> > order; 
 } buyer[MAX];
 
