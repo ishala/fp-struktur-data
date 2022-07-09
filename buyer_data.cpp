@@ -50,37 +50,7 @@ void enQueue(DATA* x)
 };
 
 
-void displayData(DATA* x)
-{
-  int total = 0;
-  if (!isEmpty())
-  {
-    for (size_t i = head; i < tail; i++)
-    {
-      // cout << "Antrian ke-" << i+1 << "\n\n";
-      cout << "=====================\n";
-      cout << "|| Antrian ke - " << i+1 << "  ||\n";
-      cout << "===============================================\n";
-      for (size_t j = 0; j < x[i].order.size(); j++)
-      {
-        total += hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
-        cout << "  " << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]; 
-        spacingMakanan(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]);
-        cout << "|| Rp. "; dot(&hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
-        spacingHarga();
-        cout << "\n";
-      } 
-      cout << "===============================================\n";
-      //spacingTotal();
-      cout << "        TOTAL              || Rp. "; dot(&total); cout << "  \n";
-      cout << "===============================================\n\n\n";
-    };
-  } else
-  {
-    system("cls");
-    amogusEmpty();
-  }
-}
+
 
 //HAPUS DATA
 void deQueue(DATA* x)
@@ -112,49 +82,101 @@ void sortDescending(DATA* x)
   }
 }
 
-void searchMenu(DATA* x, int a, int b)
+void searchMenu(DATA* x)
 {
   bool isFound = false;
-  vector<vector<int> > searchElement;
-  vector<vector<int> >::iterator it[tail+1];
-  searchElement.push_back(vector<int>());
-  searchElement[searchElement.size()-1].push_back(a);
-  searchElement[searchElement.size()-1].push_back(b);
+
   
-
-  for (size_t i = 0; i < tail+1; i++)
+  for (size_t z = 0; z < 5; z++)
   {
-    it[i] = search(x[i].order.begin(), x[i].order.end(), searchElement.begin(), searchElement.end());
-  }
-
-  for (size_t i = 0; i < tail+1; i++)
-  {
-    if (it[i] != x[i].order.end())
+    for (size_t y = 0; y < 10; y++)
     {
-      if (i==0)
-      {
-        cout << "Menu dipesan dalam antrian: ";
-        cout << i+1;
-      } else
-      {
-        cout << ", " << i+1;
-      } 
-      isFound = true; 
-
-      if(i == tail-1)
-      {
-        cout << ".";
-      }
+      vector<int> menuPosition;
+      vector<vector<int> > searchElement;
+      vector<vector<int> >::iterator it[tail+1];  
+      searchElement.push_back(vector<int>());
+      searchElement[searchElement.size()-1].push_back(z);
+      searchElement[searchElement.size()-1].push_back(y);
       
-    }
 
+      for (size_t i = 0; i < tail+1; i++)
+      {
+        it[i] = search(x[i].order.begin(), x[i].order.end(), searchElement.begin(), searchElement.end());
+      }
 
-  } 
+      for (size_t i = 0; i < tail+1; i++)
+      {
+        if (it[i] != x[i].order.end())
+        {
+          menuPosition.push_back(i);
+        } 
+      }
 
-  if (!isFound)
-  {
-    cout << "Menu tidak ada di dalam antrian!";
+      for (size_t j = 0; j < menuPosition.size(); j++)
+      {
+        if (j == 0)
+        {
+           cout << "\nMenu " << menuMakan[z][y] << " ditemukan dalam: " << menuPosition[j]+1;
+        } else
+        {
+           cout << ", " << menuPosition[j]+1;
+        }
+
+        if (j == menuPosition.size()-1)
+        {
+          cout << ".";
+        }
+      }
+    } 
   }
-  
 }
 
+void displayData(DATA* x)
+{ 
+  
+  int total = 0;
+  if (!isEmpty())
+  {
+    for (size_t i = head; i < tail; i++)
+    {
+      // cout << "Antrian ke-" << i+1 << "\n\n";
+      cout << "=====================\n";
+      cout << "|| Antrian ke - " << i+1 << "  ||\n";
+      cout << "===============================================\n";
+      for (size_t j = 0; j < x[i].order.size(); j++)
+      {
+        total += hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]];
+        cout << "  " << menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]; 
+        spacingMakanan(menuMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]);
+        cout << "|| Rp. "; dot(&hargaMakan[buyer[i].order[j][0]][buyer[i].order[j][1]]); 
+        spacingHarga();
+        cout << "\n";
+      } 
+      cout << "===============================================\n";
+      //spacingTotal();
+      cout << "        TOTAL              || Rp. "; dot(&total); cout << "  \n";
+      cout << "===============================================\n\n\n";
+    };
+    searchMenu(x);
+  } else
+  {
+    system("cls");
+    amogusEmpty();
+  }
+}
+
+// int main(int argc, char const *argv[])
+// {
+//   buyer[0].order.push_back(vector<int>());
+//   buyer[0].order[buyer[0].order.size()-1].push_back(1);
+//   buyer[0].order[buyer[0].order.size()-1].push_back(2);
+//   buyer[1].order.push_back(vector<int>());
+//   buyer[1].order[buyer[0].order.size()-1].push_back(1);
+//   buyer[1].order[buyer[0].order.size()-1].push_back(3);
+//   buyer[2].order.push_back(vector<int>());
+//   buyer[2].order[buyer[0].order.size()-1].push_back(1);
+//   buyer[2].order[buyer[0].order.size()-1].push_back(3);
+//   tail+=3;
+//   searchMenu(buyer);
+//   return 0;
+// }
