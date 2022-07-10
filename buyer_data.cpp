@@ -134,12 +134,12 @@ void searchMenu(DATA* x)
 void displayData(DATA* x)
 { 
   
-  int total = 0;
+  int total;
   if (!isEmpty())
   {
     for (size_t i = head; i < tail; i++)
-    {
-      // cout << "Antrian ke-" << i+1 << "\n\n";
+    { 
+      total = 0;
       cout << "=====================\n";
       cout << "|| Antrian ke - " << i+1 << "  ||\n";
       cout << "===============================================\n";
@@ -164,19 +164,3 @@ void displayData(DATA* x)
     amogusEmpty();
   }
 }
-
-// int main(int argc, char const *argv[])
-// {
-//   buyer[0].order.push_back(vector<int>());
-//   buyer[0].order[buyer[0].order.size()-1].push_back(1);
-//   buyer[0].order[buyer[0].order.size()-1].push_back(2);
-//   buyer[1].order.push_back(vector<int>());
-//   buyer[1].order[buyer[0].order.size()-1].push_back(1);
-//   buyer[1].order[buyer[0].order.size()-1].push_back(3);
-//   buyer[2].order.push_back(vector<int>());
-//   buyer[2].order[buyer[0].order.size()-1].push_back(1);
-//   buyer[2].order[buyer[0].order.size()-1].push_back(3);
-//   tail+=3;
-//   searchMenu(buyer);
-//   return 0;
-// }
