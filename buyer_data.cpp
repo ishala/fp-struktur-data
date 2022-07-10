@@ -102,10 +102,6 @@ void searchMenu(DATA* x)
       for (size_t i = 0; i < tail+1; i++)
       {
         it[i] = search(x[i].order.begin(), x[i].order.end(), searchElement.begin(), searchElement.end());
-      }
-
-      for (size_t i = 0; i < tail+1; i++)
-      {
         if (it[i] != x[i].order.end())
         {
           menuPosition.push_back(i);
